@@ -7,4 +7,6 @@ jobs:
       - name: Print greeting
         run: echo "Hello World!" # run = define a command here. Remember the alternatives are to use shell scripts or Actions.
       - name: Print goodbye
-        run: echo "Done - bye!"
+        run: |
+          echo "Completed!"
+          echo "Done - bye!"
