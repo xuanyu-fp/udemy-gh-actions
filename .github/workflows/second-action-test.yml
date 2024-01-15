@@ -1,0 +1,16 @@
+name: Run Tests for Project
+on: push # runs when a commit is pushed
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Get code (download from repo! Cos the servers that run these tests are sitting elsewhere.)
+              uses: actions/checkout@v3 # official action maintained by GH team that downloads code. While shell scripts use "run", for actions we use "uses".
+            - name: Install NodeJS # usually don't need cos GH runners usually have it.
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18 # cos runner only has v16
+            - name: Install dependencies
+              run: npm ci # you can also use npm install but that installs latest versions. npm ci refers to package.lock. instead.
+            - name: Run tests
+              run: npm test
