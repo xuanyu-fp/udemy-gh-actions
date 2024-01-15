@@ -1,0 +1,10 @@
+name: First Workflow # workflow name. MANDATORY.
+on: workflow_dispatch # define event(s) that trigger this workflow. workflow_dispatch means manual trigger.
+jobs:
+  first-job: # name of first job
+    runs-on: ubuntu-latest # define the runner where the job will be running on.
+    steps:
+      - name: Print greeting
+        run: echo "Hello World!" # run = define a command here. Remember the alternatives are to use shell scripts or Actions.
+      - name: Print goodbye
+        run: echo "Done - bye!"
